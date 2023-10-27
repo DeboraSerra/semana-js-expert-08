@@ -16,7 +16,7 @@ export default class MP4Demuxer {
   async run(stream, { onConfig, onChunk }) {
     this.#onConfig = onConfig;
     this.#onChunk = onChunk;
-    this.#file = await createFile(stream);
+    this.#file = createFile();
     this.#file.onReady = this.#onReady.bind(this);
 
     this.#file.onSamples = this.#onSamples.bind(this);
